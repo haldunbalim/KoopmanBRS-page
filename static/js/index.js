@@ -1,16 +1,8 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
-var INTERP_BASE = "https://ait.ethz.ch/projects/2021/snarf/downloads/backward";
 var NUM_INTERP_FRAMES = 100;
 
 var interp_images = [];
-function preloadInterpolationImages() {
-  for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
-    var path = INTERP_BASE + '/' + String(i).padStart(4, '0') + '.jpg';
-    interp_images[i] = new Image();
-    interp_images[i].src = path;
-  }
-}
 
 function setInterpolationImage(i) {
   var image = interp_images[i];
@@ -65,7 +57,6 @@ $(document).ready(function() {
         player.currentTime = player.duration / 100 * this.value;
       })
     }, false);*/
-    preloadInterpolationImages();
 
     $('#interpolation-slider').on('input', function(event) {
       setInterpolationImage(this.value);
